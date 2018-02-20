@@ -18,11 +18,10 @@ enum custom_keycodes {
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
-#define TAPPING_TOGGLE 2
-#define KC_LOWR LOWER
-#define KC_RASE RAISE
 
-// TODO: Tap toggle _RAISE.  TT(_RAISE) did not appear to work.  https://www.reddit.com/r/olkb/comments/7ybtfs/help_tapping_toggle_in_qmk/
+#define KC_LOWR LOWER
+#define KC_RASE TT(_RAISE) // Tap raise twice to lock, twice to unlock
+
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -48,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
       F7 , F8 , F9, F10 ,F11 ,F12 ,               RBRC, P7 , P8 , P9 ,PLUS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM, P4 , P5 ,LCBR,RCBR,PIPE,
+         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    , P1 , P2 , P3 ,EQL ,UNDS ,
+         ,    ,    ,    ,    ,    ,    ,         ,    , P1 , P2 , P3 ,    ,UNDS ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,DEL ,        BSPC ,    , P0
   //                  `----+----+----'        `----+----+----'
@@ -58,15 +57,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_RAISE] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,VOLU,MPRV,MPLY,MNXT, F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
+         ,VOLU,MPRV,MPLY,MNXT,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLD,HOME, UP ,END ,PGUP,                    ,    ,NLCK,INS ,SLCK,,
+         ,VOLD,HOME, UP ,END ,PGUP,               DLR , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,LEFT,DOWN,RGHT,    ,               RPRN,MPRV,MPLY,MNXT,    ,,
+         ,    ,LEFT,DOWN,RGHT,    ,                   , P4 , P5 , P6, TAB ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,    ,    ,    ,PGDN,    ,         ,    ,    ,    ,    ,    ,,
+         ,MUTE,    ,    ,    ,PGDN,    ,         ,    , P1 , P2 , P3 ,PENT,PEQL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             ,    ,
+                           ,    ,    ,             , P0 ,PDOT
   //                  `----+----+----'        `----+----+----'
   ),
 
