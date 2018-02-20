@@ -14,6 +14,8 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
+  FAST_LEFT,
+  FAST_RIGHT
 };
 
 #define KC_ KC_TRNS
@@ -21,7 +23,10 @@ enum custom_keycodes {
 
 #define KC_LOWR LOWER
 #define KC_RASE TT(_RAISE) // Tap raise twice to lock, twice to unlock
+// TODO: LEDs on when on layer 2.  May help: https://www.reddit.com/r/olkb/comments/7y0290/make_backlight_leds_turn_on_on_a_certain_layer/
 
+#define KC_FLFT FAST_LEFT  // Zip ten spaces to the left
+#define KC_FRGT FAST_RIGHT  // Zip ten spaces to the right
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -30,11 +35,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,PSCR,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,DEL ,
+     TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LSFT, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LALT, Z  , X  , C  , V  , B  ,LGUI ,     PSCR , K  , M  ,COMM,DOT ,SLSH,RGHT,
+     LALT, Z  , X  , C  , V  , B  ,LGUI,         , K  , M  ,COMM,DOT ,SLSH,RGHT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LCTL,LOWR,RASE ,         ENT ,SPC,BSPC
   //                  `----+----+----'        `----+----+----'
@@ -42,10 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-	  F1 , F2 , F3 , F4 , F5 , F6, 				  CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
-  // TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
+	  F1 , F2 , F3 , F4 , F5 , F6, 				      ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      F7 , F8 , F9, F10 ,F11 ,F12 ,               RBRC, P7 , P8 , P9 ,PLUS,    ,
+      F7 , F8 , F9, F10 ,F11 ,F12 ,                   ,MINS,BSLS,    ,PLUS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
@@ -57,11 +61,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_RAISE] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,VOLU,MPRV,MPLY,MNXT,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
+     GRV ,VOLU,MPRV,MPLY,MNXT,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,VOLD,HOME, UP ,END ,PGUP,               DLR , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,LEFT,DOWN,RGHT,    ,                   , P4 , P5 , P6, TAB ,    ,
+         ,FLFT,LEFT,DOWN,RGHT,FRGT,                   , P4 , P5 , P6, TAB ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MUTE,    ,    ,    ,PGDN,    ,         ,    , P1 , P2 , P3 ,PENT,PEQL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -96,7 +100,15 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case QWERTY:
+    case FAST_LEFT:
+	  SEND_STRING(SS_TAP(X_LEFT)""SS_TAP(X_LEFT)""SS_TAP(X_LEFT)""SS_TAP(X_LEFT)""SS_TAP(X_LEFT));
+      return false;
+	  break;
+	case FAST_RIGHT:
+	  SEND_STRING(SS_TAP(X_RIGHT)""SS_TAP(X_RIGHT)""SS_TAP(X_RIGHT)""SS_TAP(X_RIGHT)""SS_TAP(X_RIGHT));
+      return false;
+	  break;
+	case QWERTY:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
           PLAY_SONG(tone_qwerty);
