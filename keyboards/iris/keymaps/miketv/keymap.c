@@ -18,13 +18,13 @@ enum custom_keycodes {
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
-
+#define TAPPING_TOGGLE 2
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
+
+// TODO: Tap toggle _RAISE.  TT(_RAISE) did not appear to work.  https://www.reddit.com/r/olkb/comments/7ybtfs/help_tapping_toggle_in_qmk/
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
-#define KC_LBRA LSFT(KC_LBRC)
-#define KC_RBRA LSFT(KC_RBRC)
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = KC_KEYMAP(
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
       F7 , F8 , F9, F10 ,F11 ,F12 ,               RBRC, P7 , P8 , P9 ,PLUS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM, P4 , P5 ,LBRA,RBRA,PIPE,
+         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM, P4 , P5 ,LCBR,RCBR,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    , P1 , P2 , P3 ,EQL ,UNDS ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
