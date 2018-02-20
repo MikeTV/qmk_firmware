@@ -23,6 +23,8 @@ enum custom_keycodes {
 #define KC_RASE RAISE
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
+#define KC_LBRA LSFT(KC_LBRC)
+#define KC_RBRA LSFT(KC_RBRC)
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = KC_KEYMAP(
@@ -41,11 +43,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
+	  F1 , F2 , F3 , F4 , F5 , F6, 				  CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
+  // TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,PGUP,    ,    ,LBRC,               RBRC, P7 , P8 , P9 ,PLUS,    ,
+      F7 , F8 , F9, F10 ,F11 ,F12 ,               RBRC, P7 , P8 , P9 ,PLUS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,HOME,PGDN,END,     ,LPRN,               RPRN, P4 , P5 , P6 ,MINS,PIPE,
+         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM, P4 , P5 ,LBRA,RBRA,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    , P1 , P2 , P3 ,EQL ,UNDS ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -55,13 +58,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_RAISE] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
+         ,VOLU,MPRV,MPLY,MNXT, F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    , UP ,    ,    ,LBRC,               RBRC,    ,NLCK,INS ,SLCK,MUTE,
+         ,VOLD,HOME, UP ,END ,PGUP,                    ,    ,NLCK,INS ,SLCK,,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LEFT,DOWN,RGHT,    ,LPRN,               RPRN,MPRV,MPLY,MNXT,    ,VOLU,
+         ,    ,LEFT,DOWN,RGHT,    ,               RPRN,MPRV,MPLY,MNXT,    ,,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,VOLD,
+         ,MUTE,    ,    ,    ,PGDN,    ,         ,    ,    ,    ,    ,    ,,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
