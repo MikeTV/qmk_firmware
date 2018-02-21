@@ -24,6 +24,7 @@ enum custom_keycodes {
 #define KC_LOWR LOWER
 #define KC_RASE TT(_RAISE) // Tap raise twice to lock, twice to unlock
 // TODO: LEDs on when on layer 2.  May help: https://www.reddit.com/r/olkb/comments/7y0290/make_backlight_leds_turn_on_on_a_certain_layer/
+// TODO: Layer keys for ctrl-win-left & right (for switching Windows virtual desktop)
 
 #define KC_FLFT FAST_LEFT  // Zip ten spaces to the left
 #define KC_FRGT FAST_RIGHT  // Zip ten spaces to the right
@@ -39,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LSFT, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LALT, Z  , X  , C  , V  , B  ,LGUI,     DEL , K  , M  ,COMM,DOT ,SLSH,RGHT,
+     LALT, Z  , X  , C  , V  , B  ,LGUI,     DEL , K  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LCTL,LOWR,RASE ,         ENT ,SPC,BSPC
   //                  `----+----+----'        `----+----+----'
