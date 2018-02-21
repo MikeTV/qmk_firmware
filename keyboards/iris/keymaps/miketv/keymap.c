@@ -29,7 +29,8 @@ enum custom_keycodes {
 
 // Under consideration for relocation:
 //  Shift to right thumb cluster, probably innermost position to replace backspace.  So many shift combos, currently need to have two mapped just to make 'em less awkward.  Shift-enter is the only combo that would be present in that thumb cluster, and that's usually quite deliberate so it shouldn't be too bad.  Also moves a very common key off a pinkie.
-//      \_ Or could move to left thumb cluster inner space if moving CTRL.  Since I usually shift with my left hand anyways.
+//      \_ Or left thumb cluster inner space if moving CTRL?  No, makes shift+arrows awkward, and that's very common. 
+//		\_ Well, I'd have to move numpad dot to make this work!  Works great, IMO, but that thumb is a period on the numpad layer!  Need to be able to use shift with the arrow keys.  Also need to be able to enter periods when using the numpad.  Maybe put enter in the stretch position, backspace back where it was, and shift in enter's space?
 //  Backspace to upper stretch position on right thumb cluster. It should be less of a constant-use key (at least, once I get the hang of this! =) ), so a stretch seems permissible. Delete is used more rarely and can be moved to a pinkie.
 //  CTRL to... somewhere.  Running into a number of combos of CTRL+arrows.  Could move to left pinkie if going to be moving shift.  It's a kind of common key, but not as common as shift.  Will make CTRL+Z awkward, but it always has been.
 //       \_ This makes CTRL+Win+arrows (change virtual desktop) about the same as ALT+Win+arrows (move window to VD), so that's nice.
@@ -50,9 +51,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LALT, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,LGUI,     DEL , K  , M  ,COMM,DOT ,SLSH,RSFT,
+     LCTL, Z  , X  , C  , V  , B  ,LGUI,     ENT , K  , M  ,COMM,DOT ,SLSH,DEL ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LOWR,RASE ,         ENT ,SPC,BSPC
+                            ,LOWR,RASE,       LSFT,SPC ,BSPC
   //                  `----+----+----'        `----+----+----'
   ),
 
