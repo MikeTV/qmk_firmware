@@ -35,7 +35,16 @@ enum custom_keycodes {
 //  CTRL to... somewhere.  Running into a number of combos of CTRL+arrows.  Could move to left pinkie if going to be moving shift.  It's a kind of common key, but not as common as shift.  Will make CTRL+Z awkward, but it always has been.
 //       \_ This makes CTRL+Win+arrows (change virtual desktop) about the same as ALT+Win+arrows (move window to VD), so that's nice.
 //
-//
+/************************************************
+	Reasoning for keys:
+	Escape: Standard position. Like to be able to hit it without centering my hands first.
+	Tab:	Standard position. Not frequently used... but enough.  Not high-value real estate anyway.
+	Alt:	IDK. Has to go somewhere. Kinda nice next to Control, since they fulfill similar roles. Maybe muscle memory will benefit from that.
+	Control:Sort of standard position. Used frequently, but thumb cluster locations were all awkward.
+	Numbers:My time spent with them reversed so symbols are the default has taught me that it's not worth the hassle.  If I'm going to use the symbols, I'd rather they be closer to the home row on the symbol layer.
+	Letters:Colemak, for minimal finger strain. Qwerty is inefficient use of finger movement. Dvorak is neat, but I don't need to optimize for typing speed (or else I'd learn stenography, which QMK appears to support!). I think more than I type, and I'm more concerned about minimizing RSI.  Hence this whole project.
+	
+************************************************/
 
 #define KC_FLFT FAST_LEFT  // Zip ten spaces to the left
 #define KC_FRGT FAST_RIGHT  // Zip ten spaces to the right
@@ -75,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      GRV ,VOLU,MPRV,MPLY,MNXT,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLD,HOME, UP ,END ,PGUP,               DLR , P7 , P8 , P9 ,PPLS,    ,
+         ,VOLD,HOME, UP ,END ,PGUP,               TAB , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,FLFT,LEFT,DOWN,RGHT,FRGT,                   , P4 , P5 , P6, TAB ,    ,
+         ,FLFT,LEFT,DOWN,RGHT,FRGT,               BSPC, P4 , P5 , P6, EQL ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MUTE,    ,    ,    ,PGDN,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
