@@ -11,8 +11,8 @@ extern keymap_config_t keymap_config;
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
-  LOWER,
-  RAISE,
+  LOWER, // Symbol layer
+  RAISE, // Function/numpad layer
   ADJUST,
   FAST_LEFT,
   FAST_RIGHT
@@ -22,26 +22,25 @@ enum custom_keycodes {
 #define _______ KC_TRNS
 
 #define KC_LOWR LOWER
-#define KC_RASE TT(_RAISE) // Tap raise twice to lock, twice to unlock
+#define KC_RASE TT(_RAISE) // Tap raise thrice to lock, thrice to unlock
 // TODO: LEDs on when on layer 2.  May help: https://www.reddit.com/r/olkb/comments/7y0290/make_backlight_leds_turn_on_on_a_certain_layer/
-// TODO: Layer keys for ctrl-win-left & right (for switching Windows virtual desktop)
-// TODO: Context menu, tilde, scrlock, pause, insert, capslock, macros... separate layer for rarely-used commands?  Maybe accessed by pressing both modifier keys.
+// TODO: tilde (GRV), scrlock, pause, insert, capslock, macros... separate layer for rarely-used commands?  Maybe accessed by pressing both modifier keys.
 
-// Under consideration for relocation:
-//  Shift to right thumb cluster, probably innermost position to replace backspace.  So many shift combos, currently need to have two mapped just to make 'em less awkward.  Shift-enter is the only combo that would be present in that thumb cluster, and that's usually quite deliberate so it shouldn't be too bad.  Also moves a very common key off a pinkie.
-//      \_ Or left thumb cluster inner space if moving CTRL?  No, makes shift+arrows awkward, and that's very common. 
-//		\_ Well, I'd have to move numpad dot to make this work!  Works great, IMO, but that thumb is a period on the numpad layer!  Need to be able to use shift with the arrow keys.  Also need to be able to enter periods when using the numpad.  Maybe put enter in the stretch position, backspace back where it was, and shift in enter's space?
-//  Backspace to upper stretch position on right thumb cluster. It should be less of a constant-use key (at least, once I get the hang of this! =) ), so a stretch seems permissible. Delete is used more rarely and can be moved to a pinkie.
-//  CTRL to... somewhere.  Running into a number of combos of CTRL+arrows.  Could move to left pinkie if going to be moving shift.  It's a kind of common key, but not as common as shift.  Will make CTRL+Z awkward, but it always has been.
-//       \_ This makes CTRL+Win+arrows (change virtual desktop) about the same as ALT+Win+arrows (move window to VD), so that's nice.
-//
+// Currently considering:
+//	 + as the combo lower-shift-D (shift-=) rather than its own key.  Initial use suggests this is a positive move.
+//	 Arrow keys on lower symbol layer, to match the6r position on the PKL script I use on other computers.  I wonder how this will feel?  Leaving them also as-is on the numpad layer until a clear direction is established.
+//	 Backslash in same position as forward slash, but on symbol layer.  Its old position above the home row was... unnatural?  The two keys' positions didn't relate.  This may be more memorable.  And if I do keep hitting the wrong one, it'll just be a press of the symbol layer key to flip back and forward between them.
+
 /************************************************
 	Reasoning for keys:
 	Escape: Standard position. Like to be able to hit it without centering my hands first.
 	Tab:	Standard position. Not frequently used... but enough.  Not high-value real estate anyway.
 	Alt:	IDK. Has to go somewhere. Kinda nice next to Control, since they fulfill similar roles. Maybe muscle memory will benefit from that.
-	Control:Sort of standard position. Used frequently, but thumb cluster locations were all awkward.
-	Numbers:My time spent with them reversed so symbols are the default has taught me that it's not worth the hassle.  If I'm going to use the symbols, I'd rather they be closer to the home row on the symbol layer.
+	Control:Sort of standard position. Used frequently, but thumb cluster locations were all awkward.  Ctrl-Z isn't as bad as it looks, just shift left hand down and left one.
+	Shift:	Shift is used so much, it has to be in easy reach. Under the right thumb, the only combo that isn't convenient is shift-enter, but that's a rare one and quite deliberate.  I've been moving my right pointer over to hit enter in those cases, and that appears to be working fine. 
+	Delete: I use backspace more frequently than delete, so it gets preferred seating (reason: typos!).  Delete is primarily deleting files?  This could go on a modifier layer if needed, but the pinkie stretch is an awkward position that it's fine to fill.
+	
+	Numbers:My time spent with them reversed (so symbols are the default) has taught me that it's not worth the hassle.  If I'm going to use the symbols, I'd rather they be closer to the home row on the symbol layer. (Update a couple months later: With this keyboard being ortholinear, I'm actually successfully building a muscle memory for top-row numbers and symbols that I never had with a staggered keyboard.  Neat!  Maybe don't need those symbols near the home row after all.  (Still keeping '!' and '(', ')' on the home row because of very frequent use and awkward reaching. '$' is fine where it is though.)
 	Letters:Colemak, for minimal finger strain. Qwerty is inefficient use of finger movement. Dvorak is neat, but I don't need to optimize for typing speed (or else I'd learn stenography, which QMK appears to support!). I think more than I type, and I'm more concerned about minimizing RSI.  Hence this whole project.
 	
 ************************************************/
@@ -62,19 +61,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LCTL, Z  , X  , C  , V  , B  ,LGUI,     ENT , K  , M  ,COMM,DOT ,SLSH,DEL ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                            ,LOWR,RASE,       LSFT,SPC ,BSPC
+                        APP,LOWR,RASE,       LSFT,SPC ,BSPC
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-	  F1 , F2 , F3 , F4 , F5 , F6, 				      ,    ,    ,    ,    ,    ,
+	  F1 , F2 , F3 , F4 , F5 , F6, 				      ,HOME, UP ,END ,    ,PGUP,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      F7 , F8 , F9, F10 ,F11 ,F12 ,                   ,    ,BSLS,    ,PLUS,    ,
+      F7 , F8 , F9, F10 ,F11 ,F12 ,               FLFT,LEFT,DOWN,RGHT,FRGT,PGDN,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,            ,    ,   
   //                  `----+----+----'        `----+----+----'
