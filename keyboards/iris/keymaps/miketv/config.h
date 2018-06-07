@@ -40,10 +40,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TOGGLE 3
 
-#define MOUSEKEY_DELAY                              300
-#define MOUSEKEY_INTERVAL                           50
-#define MOUSEKEY_MAX_SPEED                          10
-#define MOUSEKEY_TIME_TO_MAX                        20
+// Found at https://www.reddit.com/r/olkb/comments/72u8ou/qmk_mouse_keys_rock/?st=ji4sk0lh&sh=3d00d293
+#define MOUSEKEY_DELAY                              0
+#define MOUSEKEY_INTERVAL                           16
+#define MOUSEKEY_MAX_SPEED                          7
+#define MOUSEKEY_TIME_TO_MAX                        60
+#define MOUSEKEY_WHEEL_DELAY                        0
 #define MOUSEKEY_WHEEL_MAX_SPEED                    8
 #define MOUSEKEY_WHEEL_MAX_TIME_TO_MAX              40
 
