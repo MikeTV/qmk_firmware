@@ -46,12 +46,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MOUSEKEY_INTERVAL          50
 // cursor speeds:
 //#define MOUSEKEY_MAX_SPEED         10
-#define MK_C_OFFSET_SLOW     1 // pixels
 //#define MOUSEKEY_TIME_TO_MAX       20
-#define MK_C_INTERVAL_SLOW 100 // milliseconds
-#define MK_C_OFFSET_MED      4
+#define MK_C_OFFSET_SLOW     1 // pixels
+#define MK_C_INTERVAL_SLOW  16 // milliseconds
+#define MK_C_OFFSET_MED      6
 #define MK_C_INTERVAL_MED   16
-#define MK_C_OFFSET_FAST    12
+#define MK_C_OFFSET_FAST    18
 #define MK_C_INTERVAL_FAST  16
 // scroll wheel speeds:
 #define MK_W_OFFSET_SLOW     1 // wheel clicks
