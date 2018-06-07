@@ -40,7 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TOGGLE 3
 
-
+// See docs at https://github.com/qmk/qmk_firmware/pull/2246/commits/21992562d6246c9601c1c64936af60e5952d7f9a
 #define MK_3_SPEED // 3-speed constant speed enabled (remove this to restore default acceleration mode)
 #define MK_MOMENTARY_ACCEL // comment this out for tap-to-select acceleration
 //#define MOUSEKEY_INTERVAL          50
