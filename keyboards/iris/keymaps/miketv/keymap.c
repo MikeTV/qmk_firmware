@@ -102,11 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+---------+----------+---------+----.              ,----+----+----+----+----+----.
      GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,VOLD,MS_BTN1  ,MS_UP     ,MS_BTN2  ,PGUP,               TAB , P7 , P8 , P9 ,PPLS,    ,
+         ,VOLD,MS_BTN1  ,MS_UP     ,MS_BTN2  ,    ,               TAB , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,FLFT,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,FRGT,               BSPC, P4 , P5 , P6, EQL ,    ,
+         ,    ,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,    ,               BSPC, P4 , P5 , P6, EQL ,    ,
   //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,MS_ACCEL0,MS_ACCEL1 ,MS_ACCEL2,PGDN,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
+         ,MUTE,MS_ACCEL0,MS_ACCEL1 ,MS_ACCEL2,    ,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
   //`----+----+---------+----+-+-------------+----+----/    \----+----+----+----+----+----+----'
                                             ,    ,    ,          , P0 ,PDOT
   //                                `--------+----+----'    `----+----+----'
