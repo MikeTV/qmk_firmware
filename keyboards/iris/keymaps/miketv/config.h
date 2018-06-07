@@ -40,6 +40,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TOGGLE 3
 
+
+
+//#define MK_MOMENTARY_ACCEL // comment this out for tap-to-select acceleration
+//#define MOUSEKEY_INTERVAL          50
+// cursor speeds:
+//#define MOUSEKEY_MAX_SPEED         10
+#define MK_C_OFFSET_SLOW     1 // pixels
+//#define MOUSEKEY_TIME_TO_MAX       20
+#define MK_C_INTERVAL_SLOW 100 // milliseconds
+#define MK_C_OFFSET_MED      4
+#define MK_C_INTERVAL_MED   16
+#define MK_C_OFFSET_FAST    12
+#define MK_C_INTERVAL_FAST  16
+// scroll wheel speeds:
+#define MK_W_OFFSET_SLOW     1 // wheel clicks
+#define MK_W_INTERVAL_SLOW 400 // milliseconds
+#define MK_W_OFFSET_MED      1
+#define MK_W_INTERVAL_MED  200
+#define MK_W_OFFSET_FAST     1
+#define MK_W_INTERVAL_FAST 100
+
 // Found at https://www.reddit.com/r/olkb/comments/72u8ou/qmk_mouse_keys_rock/?st=ji4sk0lh&sh=3d00d293
 #define MOUSEKEY_DELAY                              0
 #define MOUSEKEY_INTERVAL                           16
