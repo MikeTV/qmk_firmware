@@ -55,11 +55,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MK_C_INTERVAL_FAST  16
 // scroll wheel speeds:
 #define MK_W_OFFSET_SLOW     1 // wheel clicks
-#define MK_W_INTERVAL_SLOW 400 // milliseconds
+#define MK_W_INTERVAL_SLOW  75 // milliseconds
 #define MK_W_OFFSET_MED      1
-#define MK_W_INTERVAL_MED  200
+#define MK_W_INTERVAL_MED   25
 #define MK_W_OFFSET_FAST     1
-#define MK_W_INTERVAL_FAST 100
+#define MK_W_INTERVAL_FAST   1
 
 // Found at https://www.reddit.com/r/olkb/comments/72u8ou/qmk_mouse_keys_rock/?st=ji4sk0lh&sh=3d00d293
 #define MOUSEKEY_DELAY                              0
