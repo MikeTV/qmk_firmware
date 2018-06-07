@@ -38,6 +38,7 @@ enum custom_keycodes {
 // TODO: LEDs on when on layer 2.  May help: https://www.reddit.com/r/olkb/comments/7y0290/make_backlight_leds_turn_on_on_a_certain_layer/
 // TODO: tilde (GRV), scrlock, pause, insert, capslock, macros... separate layer for rarely-used commands?  Maybe accessed by pressing both modifier keys.
 // TODO: Assign something to lower-'.  Don't need | there, as that's easy to access at lower-shift-/
+// TODO: Mouse click-lock for easier dragging.  See: https://www.reddit.com/r/olkb/comments/72u3ky/toggle_mouse_button_hold/
 
 // Currently considering:
 //	 + as the combo lower-shift-D (shift-=) rather than its own key.  Initial use suggests this is a positive move.
