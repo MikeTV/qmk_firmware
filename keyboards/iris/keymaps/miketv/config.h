@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #define MK_3_SPEED // 3-speed constant speed enabled (remove this to restore default acceleration mode)
-//#define MK_MOMENTARY_ACCEL // comment this out for tap-to-select acceleration
+#define MK_MOMENTARY_ACCEL // comment this out for tap-to-select acceleration
 //#define MOUSEKEY_INTERVAL          50
 // cursor speeds:
 //#define MOUSEKEY_MAX_SPEED         10

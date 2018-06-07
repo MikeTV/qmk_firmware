@@ -100,13 +100,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_RAISE] = LAYOUT_kc(
   //,----+----+---------+----------+---------+----.              ,----+----+----+----+----+----.
-     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
+     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,MUTE,               NLCK,CALC,PSLS,PAST,PMNS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
          ,VOLD,MS_BTN1  ,MS_UP     ,MS_BTN2  ,    ,               TAB , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,    ,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,    ,               BSPC, P4 , P5 , P6, EQL ,    ,
+         ,ACL2,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,    ,               BSPC, P4 , P5 , P6, EQL ,    ,
   //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,MS_ACCEL0,MS_ACCEL1 ,MS_ACCEL2,    ,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
+         ,ACL0,MS_ACCEL0,MS_ACCEL1 ,MS_ACCEL2,    ,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
   //`----+----+---------+----+-+-------------+----+----/    \----+----+----+----+----+----+----'
                                             ,    ,    ,          , P0 ,PDOT
   //                                `--------+----+----'    `----+----+----'
