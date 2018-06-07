@@ -25,11 +25,16 @@ enum custom_keycodes {
 #define KC_RASE TT(_RAISE) // Tap raise thrice to lock, thrice to unlock
 // TODO: LEDs on when on layer 2.  May help: https://www.reddit.com/r/olkb/comments/7y0290/make_backlight_leds_turn_on_on_a_certain_layer/
 // TODO: tilde (GRV), scrlock, pause, insert, capslock, macros... separate layer for rarely-used commands?  Maybe accessed by pressing both modifier keys.
+// TODO: Assign something to lower-'.  Don't need | there, as that's easy to access at lower-shift-/
 
 // Currently considering:
 //	 + as the combo lower-shift-D (shift-=) rather than its own key.  Initial use suggests this is a positive move.
-//	 Arrow keys on lower symbol layer, to match the6r position on the PKL script I use on other computers.  I wonder how this will feel?  Leaving them also as-is on the numpad layer until a clear direction is established.
+//      Update 2018-06 - Success.  Using shift-= for + regularly.  Also using shift-\ for | (lower-shift-/), so I could assign something else to lower-'
+//	 Arrow keys on lower symbol layer, to match their position on the PKL script I use on other computers.  I wonder how this will feel?  Leaving them also as-is on the numpad layer until a clear direction is established.
+//      Update 2018-06 - It's good, when I remember to use it.  Getting rid of the ones on the numpad layer to force myself to adopt arrows on the symbol layer entirely.
 //	 Backslash in same position as forward slash, but on symbol layer.  Its old position above the home row was... unnatural?  The two keys' positions didn't relate.  This may be more memorable.  And if I do keep hitting the wrong one, it'll just be a press of the symbol layer key to flip back and forward between them.
+//      Update 2018-06 - This is much easier to remember.
+//  2018-06 - Mouse control on numpad layer left hand.  To cut down on mouse usage for rudimentary stuff at least.
 
 /************************************************
 	Reasoning for keys:
@@ -40,8 +45,9 @@ enum custom_keycodes {
 	Shift:	Shift is used so much, it has to be in easy reach. Under the right thumb, the only combo that isn't convenient is shift-enter, but that's a rare one and quite deliberate.  I've been moving my right pointer over to hit enter in those cases, and that appears to be working fine. 
 	Delete: I use backspace more frequently than delete, so it gets preferred seating (reason: typos!).  Delete is primarily deleting files?  This could go on a modifier layer if needed, but the pinkie stretch is an awkward position that it's fine to fill.  It's also a position that's easy to hit without centering, which is convenient when mousing around email or file explorer.
 	
-	Numbers:My time spent with them reversed (so symbols are the default) has taught me that it's not worth the hassle.  If I'm going to use the symbols, I'd rather they be closer to the home row on the symbol layer. (Update a couple months later: With this keyboard being ortholinear, I'm actually successfully building a muscle memory for top-row numbers and symbols that I never had with a staggered keyboard.  Neat!  Maybe don't need those symbols near the home row after all.  (Still keeping '!' and '(', ')' on the home row because of very frequent use and awkward reaching. '$' is fine where it is though.)
-	Letters:Colemak, for minimal finger strain. Qwerty is inefficient use of finger movement. Dvorak is neat, but I don't need to optimize for typing speed (or else I'd learn stenography, which QMK appears to support!). I think more than I type, and I'm more concerned about minimizing RSI.  Hence this whole project.
+	Number row: My time spent with them reversed (so symbols are the default) has taught me that it's not worth the hassle.  If I'm going to use the symbols, I'd rather they be closer to the home row on the symbol layer. (Update a couple months later: With this keyboard being ortholinear, I'm actually successfully building a muscle memory for top-row numbers and symbols that I never had with a staggered keyboard.  Neat!  Maybe don't need those symbols near the home row after all.  (Still keeping '!' and '(', ')' on the home row because of very frequent use and awkward reaching. '$' is fine where it is though.)
+	
+  Letter layout: Colemak, for minimal finger strain. Qwerty is inefficient use of finger movement. Dvorak is neat, but I don't need to optimize for typing speed (or else I'd learn stenography, which QMK appears to support!). I think more than I type, and I'm more concerned about minimizing RSI.  Hence this whole project.
 	
 	Mentioned earlier in individual key notes, but worth noting on its own: There's value in placing some keys so they can be hit super easily without centering one's hands on the keyboard.  The corners work well for this.  Four of the five keys I find myself hitting as one-offs while mousing or otherwise are assigned to the outside corners: Escape (panic! and dismissing dialogs), Print Screen (quick screengrab for an email), Delete (pruning emails or files), Enter/Space (confirming dialog boxes) Control (triggers mouse pointer location beacon, and flips past the Windows 10 login screen first tier without interacting with the second tier).  There's only four spots, but having the enter key on an inside corner appears to be good enough, though noticeably not as good as an outside corner for random access.
 ************************************************/
@@ -81,17 +87,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 ),
   [_RAISE] = KC_KEYMAP(
-  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     GRV ,VOLU,MPRV,MPLY,MNXT,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
-  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLD,HOME, UP ,END ,PGUP,               TAB , P7 , P8 , P9 ,PPLS,    ,
-  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,FLFT,LEFT,DOWN,RGHT,FRGT,               BSPC, P4 , P5 , P6, EQL ,    ,
-  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,    ,    ,    ,PGDN,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
-  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             , P0 ,PDOT
-  //                  `----+----+----'        `----+----+----'
+  //,----+----+---------+----------+---------+----.              ,----+----+----+----+----+----.
+     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,    ,               NLCK,CALC,PSLS,PAST,PMNS,    ,
+  //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
+         ,VOLD,MS_BTN1  ,MS_UP     ,MS_BTN2  ,PGUP,               TAB , P7 , P8 , P9 ,PPLS,    ,
+  //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
+         ,FLFT,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,FRGT,               BSPC, P4 , P5 , P6, EQL ,    ,
+  //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
+         ,MUTE,MS_ACCEL0,MS_ACCEL1 ,MS_ACCEL2,PGDN,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
+  //`----+----+---------+----+-+-------------+----+----/    \----+----+----+----+----+----+----'
+                                            ,    ,    ,          , P0 ,PDOT
+  //                                `--------+----+----'    `----+----+----'
   ),
 
   [_ADJUST] = KEYMAP(
