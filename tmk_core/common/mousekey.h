@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef MOUSEKEY_H
 #define MOUSEKEY_H
-#endif
 
 #include <stdbool.h>
 #include "host.h"
@@ -123,4 +122,6 @@ void mousekey_send(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
