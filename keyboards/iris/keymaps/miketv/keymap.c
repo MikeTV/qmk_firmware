@@ -36,7 +36,7 @@ enum custom_keycodes {
 #define KC_LOWR LOWER
 #define KC_RASE TT(_RAISE) // Tap raise thrice to lock, thrice to unlock
 // TODO: LEDs on when on layer 2.  May help: https://www.reddit.com/r/olkb/comments/7y0290/make_backlight_leds_turn_on_on_a_certain_layer/
-// TODO: tilde (GRV), scrlock, pause, insert, capslock, macros... separate layer for rarely-used commands?  Maybe accessed by pressing both modifier keys.
+// TODO: scrlock, pause, insert, macros... separate layer for rarely-used commands?  Maybe accessed by pressing both modifier keys.
 // TODO: Assign something to lower-'.  Don't need | there, as that's easy to access at lower-shift-/
 // TODO: Mouse click-lock for easier dragging.  See: https://www.reddit.com/r/olkb/comments/72u3ky/toggle_mouse_button_hold/
 
@@ -87,13 +87,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-	  F1 , F2 , F3 , F4 , F5 , F6, 				          PGUP,HOME, UP ,END ,PGDN,    ,
+	  F1 , F2 , F3 , F4 , F5 , F6, 				  PGUP,HOME, UP ,END ,PGDN,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
       F7 , F8 , F9, F10 ,F11 ,F12 ,               FLFT,LEFT,DOWN,RGHT,FRGT,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,BSLS,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,GRV ,    ,    ,    ,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,            ,    ,   
   //                  `----+----+----'        `----+----+----'
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+---------+----------+---------+----.              ,----+----+----+----+----+----.
      GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,MUTE,               NLCK,CALC,PSLS,PAST,PMNS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PPLS,    ,
+     CAPS,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
          ,ACL2,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, EQL ,    ,
   //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
