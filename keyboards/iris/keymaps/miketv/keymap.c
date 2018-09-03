@@ -67,6 +67,9 @@ enum custom_keycodes {
 
 #define KC_FLFT FAST_LEFT  // Zip ten spaces to the left
 #define KC_FRGT FAST_RIGHT  // Zip ten spaces to the right
+#define KC_CLP1 LALT(LCTL(KC_F1)) // Ditto quick clipboard #1 (hold Shift to paste)
+#define KC_CLP2 LALT(LCTL(KC_F2)) // Ditto quick clipboard #2 (hold Shift to paste)
+#define KC_CLP3 LALT(LCTL(KC_F3)) // Ditto quick clipboard #3 (hold Shift to paste)
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -87,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-	  F1 , F2 , F3 , F4 , F5 , F6, 				  PGUP,HOME, UP ,END ,PGDN,    ,
+	  F1 , F2 , F3 , F4 , F5 , F6, 				          PGUP,HOME, UP ,END ,PGDN,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
       F7 , F8 , F9, F10 ,F11 ,F12 ,               FLFT,LEFT,DOWN,RGHT,FRGT,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,GRV ,    ,    ,    ,BSLS,    ,
+         ,    ,CLP3,CLP2,CLP1,    ,    ,         ,GRV ,    ,    ,    ,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,            ,    ,   
   //                  `----+----+----'        `----+----+----'
@@ -105,9 +108,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
      CAPS,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PPLS,    ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,ACL2,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, EQL ,    ,
+         ,ACL0,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, EQL ,    ,
   //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
-         ,ACL0,WH_L     ,BTN3     ,WH_R     ,BTN4,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
+         ,ACL2,WH_L     ,BTN3     ,WH_R     ,BTN4,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
   //`----+----+---------+----+-+-------------+----+----/    \----+----+----+----+----+----+----'
                                             ,    ,    ,          , P0 ,PDOT
   //                                `--------+----+----'    `----+----+----'
