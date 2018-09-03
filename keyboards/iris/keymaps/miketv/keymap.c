@@ -18,7 +18,10 @@ enum custom_keycodes {
   ADJUST,
   FAST_LEFT,
   FAST_RIGHT,
+  DYNAMIC_MACRO_RANGE,
 };
+#include "dynamic_macro.h"
+ 
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
@@ -72,6 +75,15 @@ enum custom_keycodes {
 #define KC_CLP3 LALT(LCTL(KC_F3)) // Ditto quick clipboard #3 (hold Shift to paste)
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
+
+// Dynamic macros
+#define KC_DRS1 DYN_REC_START1 
+#define KC_DMP1 DYN_MACRO_PLAY1
+#define KC_DRS2 DYN_REC_START2
+#define KC_DMP2 DYN_MACRO_PLAY2
+#define KC_DRS DYN_REC_STOP
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc(
@@ -90,11 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-	  F1 , F2 , F3 , F4 , F5 , F6, 				          PGUP,HOME, UP ,END ,PGDN,    ,
+	  F1 , F2 , F3 , F4 , F5 , F6, 				          PGUP,HOME, UP ,END ,PGDN,DRS1,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      F7 , F8 , F9, F10 ,F11 ,F12 ,               FLFT,LEFT,DOWN,RGHT,FRGT,    ,
+      F7 , F8 , F9, F10 ,F11 ,F12 ,               FLFT,LEFT,DOWN,RGHT,FRGT,DRS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,    ,
+         ,LBRC,RBRC,LPRN,RPRN,EQL ,               EXLM,LABK,RABK,LCBR,RCBR,DMP1,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,CLP3,CLP2,CLP1,    ,    ,         ,GRV ,    ,    ,    ,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -104,11 +116,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_RAISE] = LAYOUT_kc(
   //,----+----+---------+----------+---------+----.              ,----+----+----+----+----+----.
-     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,MUTE,               NLCK,CALC,PSLS,PAST,PMNS,    ,
+     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,MUTE,               NLCK,CALC,PSLS,PAST,PMNS,DRS2,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-     CAPS,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PPLS,    ,
+     CAPS,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PPLS,DRS ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,ACL0,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, EQL ,    ,
+         ,ACL0,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, EQL ,DMP2,
   //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
          ,ACL2,WH_L     ,BTN3     ,WH_R     ,BTN4,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
   //`----+----+---------+----+-+-------------+----+----/    \----+----+----+----+----+----+----'
@@ -142,6 +154,9 @@ void persistent_default_layer_set(uint16_t default_layer) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+      if (!process_record_dynamic_macro(keycode, record)) {
+        return false;
+    }
   switch (keycode) {
     case FAST_LEFT:
 	  SEND_STRING(SS_TAP(X_LEFT)""SS_TAP(X_LEFT)""SS_TAP(X_LEFT)""SS_TAP(X_LEFT)""SS_TAP(X_LEFT));
