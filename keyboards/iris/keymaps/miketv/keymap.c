@@ -116,13 +116,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_RAISE] = LAYOUT_kc(
   //,----+----+---------+----------+---------+----.              ,----+----+----+----+----+----.
-     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,MUTE,               NLCK,CALC,PSLS,PAST,PMNS,DRS2,
+     GRV ,VOLU,MPRV     ,MPLY      ,MNXT     ,MUTE,               NLCK,CALC,PSLS,PAST,PENT,DRS2,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-     CAPS,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PPLS,DRS ,
+     CAPS,VOLD,MS_BTN2  ,MS_UP     ,MS_BTN1  ,WH_U,               TAB , P7 , P8 , P9 ,PMNS ,DRS ,
   //|----+----+---------+----------+---------+----|              |----+----+----+----+----+----|
-         ,ACL0,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, EQL ,DMP2,
+         ,ACL0,MS_LEFT  ,MS_DOWN   ,MS_RIGHT ,WH_D,               BSPC, P4 , P5 , P6, PPLS,DMP2,
   //|----+----+---------+----------+---------+----+----.    ,----|----+----+----+----+----+----|
-         ,ACL2,WH_L     ,BTN3     ,WH_R     ,BTN4,    ,         ,    , P1 , P2 , P3 ,PENT,    ,
+         ,ACL2,WH_L     ,BTN3     ,WH_R     ,BTN4,    ,          ,COMM, P1 , P2 , P3 , EQL,    ,
   //`----+----+---------+----+-+-------------+----+----/    \----+----+----+----+----+----+----'
                                             ,    ,    ,          , P0 ,PDOT
   //                                `--------+----+----'    `----+----+----'
